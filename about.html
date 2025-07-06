@@ -1,0 +1,1399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | KnowledgeUniverse</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #6e45e2;
+            --secondary-color: #88d3ce;
+            --tertiary-color: #ff6b6b;
+            --dark-bg: #0f0f1a;
+            --dark-card: rgba(25, 25, 45, 0.8);
+            --light-bg: #f8f9fa;
+            --light-card: rgba(255, 255, 255, 0.85);
+            --text-dark: #e0e0e0;
+            --text-light: #333;
+            --nav-height: 70px;
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 1.5rem;
+            --space-lg: 2.5rem;
+            --space-xl: 4rem;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-dark);
+            transition: all 0.5s ease;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+        
+        /* Dark Mode Toggle */
+        .dark-mode-toggle {
+            width: 50px;
+            height: 26px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            position: relative;
+            cursor: pointer;
+            margin-left: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .light-mode .dark-mode-toggle {
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        .dark-mode-toggle::before {
+            content: '\f186';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 12px;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .light-mode .dark-mode-toggle::before {
+            content: '\f185';
+            left: auto;
+            right: 5px;
+            color: var(--text-light);
+        }
+
+        .toggle-ball {
+            width: 20px;
+            height: 20px;
+            background: white;
+            border-radius: 50%;
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .light-mode .toggle-ball {
+            background: var(--text-light);
+            left: 27px;
+        }
+
+        body.light-mode {
+            background-color: var(--light-bg);
+            color: var(--text-light);
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+        
+        /* Hero - Fixed Responsiveness */
+        .hero {
+            min-height: 100vh;
+            min-height: 100dvh; /* Use dynamic viewport height */
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding: calc(var(--nav-height) + var(--space-lg)) var(--space-sm) var(--space-lg);
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            z-index: 2;
+            padding: var(--space-md);
+            width: 90%; /* Added for better mobile control */
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 8vw, 4.5rem); /* Better mobile scaling */
+            margin-bottom: var(--space-md);
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color), var(--tertiary-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.1;
+            padding: 0 1rem; /* Prevent text overflow */
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 3.5vw, 1.4rem); /* Better mobile scaling */
+            max-width: 700px;
+            margin: 0 auto var(--space-lg);
+            opacity: 0.9;
+            padding: 0 1rem; /* Prevent text overflow */
+        }
+
+        .btn-explore {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border: none;
+            padding: 14px 36px;
+            font-size: clamp(1rem, 3.5vw, 1.1rem); /* Responsive font */
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-block;
+            box-shadow: 0 5px 20px rgba(110, 69, 226, 0.4);
+            min-width: 240px; /* Prevent button from becoming too narrow */
+            max-width: 90%; /* Prevent overflow on small screens */
+            margin: 0 auto;
+        }
+
+        .btn-explore:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(110, 69, 226, 0.6);
+        }
+
+        /* Sections */
+        .section {
+            padding: var(--space-xl) var(--space-md);
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: var(--space-lg);
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: clamp(1.8rem, 6vw, 2.8rem);
+            position: relative;
+            padding-bottom: var(--space-sm);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            border-radius: 2px;
+        }
+
+        .container-narrow {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-sm);
+        }
+
+        /* Story */
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-lg);
+        }
+
+        @media (min-width: 992px) {
+            .story-grid {
+                grid-template-columns: 1fr 1fr;
+                align-items: center;
+            }
+        }
+
+        .story-visual {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .visual-element {
+            width: 100%;
+            max-width: 450px;
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+            margin: 0 auto;
+        }
+
+        .visual-element i {
+            font-size: clamp(5rem, 10vw, 8rem);
+            color: rgba(255, 255, 255, 0.2);
+            position: absolute;
+        }
+
+        .visual-element i:nth-child(1) {
+            top: 15%;
+            left: 15%;
+        }
+
+        .visual-element i:nth-child(2) {
+            bottom: 20%;
+            right: 20%;
+        }
+
+        .story-content h3 {
+            font-size: clamp(1.6rem, 4vw, 2.2rem);
+            margin-bottom: var(--space-sm);
+            color: var(--text-dark);
+            text-align: center;
+        }
+
+        .light-mode .story-content h3 {
+            color: var(--text-light);
+        }
+
+        .story-content p {
+            margin-bottom: var(--space-md);
+            font-size: clamp(1rem, 2.5vw, 1.1rem);
+            text-align: center;
+        }
+
+        /* Values */
+        .values-section {
+            background: rgba(15, 15, 26, 0.3);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .light-mode .values-section {
+            background: rgba(248, 249, 250, 0.3);
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-md);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .value-card {
+            background: var(--dark-card);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: var(--space-lg);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+        }
+
+        .light-mode .value-card {
+            background: var(--light-card);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(110, 69, 226, 0.25);
+        }
+
+        .value-icon {
+            width: clamp(60px, 8vw, 70px);
+            height: clamp(60px, 8vw, 70px);
+            margin: 0 auto var(--space-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            font-size: clamp(1.5rem, 2.5vw, 1.8rem);
+            color: white;
+            box-shadow: 0 8px 18px rgba(110, 69, 226, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .value-card:hover .value-icon {
+            transform: scale(1.1);
+            box-shadow: 0 12px 25px rgba(110, 69, 226, 0.4);
+        }
+
+        .value-card h4 {
+            font-size: clamp(1.2rem, 3vw, 1.4rem);
+            margin-bottom: var(--space-xs);
+            color: white;
+        }
+
+        .light-mode .value-card h4 {
+            color: var(--text-light);
+        }
+
+        .value-card p {
+            font-size: clamp(0.9rem, 2.5vw, 1rem);
+        }
+
+        /* Team */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: var(--space-md);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .team-card {
+            background: var(--dark-card);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: var(--space-lg);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .light-mode .team-card {
+            background: var(--light-card);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .team-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(110, 69, 226, 0.25);
+        }
+
+        .team-avatar {
+            width: clamp(100px, 15vw, 120px);
+            height: clamp(100px, 15vw, 120px);
+            margin: 0 auto var(--space-sm);
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            color: white;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .team-info {
+            margin-bottom: var(--space-sm);
+        }
+
+        .team-info h4 {
+            font-size: clamp(1.2rem, 3vw, 1.4rem);
+            margin-bottom: 4px;
+            color: white;
+        }
+
+        .light-mode .team-info h4 {
+            color: var(--text-light);
+        }
+
+        .team-info .role {
+            font-size: clamp(0.85rem, 2.5vw, 0.95rem);
+            opacity: 0.8;
+            display: block;
+        }
+
+        .team-quote {
+            font-style: italic;
+            margin-bottom: var(--space-md);
+            position: relative;
+            flex-grow: 1;
+            padding: 0 10px;
+            font-size: clamp(0.9rem, 2.5vw, 0.95rem);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: clamp(32px, 5vw, 36px);
+            height: clamp(32px, 5vw, 36px);
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            transition: all 0.3s ease;
+            font-size: clamp(0.9rem, 2.5vw, 1rem);
+        }
+
+        .light-mode .social-links a {
+            background: rgba(0, 0, 0, 0.05);
+            color: var(--text-light);
+        }
+
+        .social-links a:hover {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            transform: translateY(-3px);
+        }
+
+        /* Impact */
+        .impact-section {
+            background: rgba(15, 15, 26, 0.3);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .light-mode .impact-section {
+            background: rgba(248, 249, 250, 0.3);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-md);
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: var(--space-lg) var(--space-sm);
+            background: var(--dark-card);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 16px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .light-mode .stat-card {
+            background: var(--light-card);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .stat-icon {
+            font-size: clamp(2rem, 5vw, 2.5rem);
+            margin-bottom: var(--space-sm);
+            color: var(--secondary-color);
+        }
+
+        .stat-number {
+            font-size: clamp(2.2rem, 6vw, 3.2rem);
+            font-weight: 700;
+            margin-bottom: 8px;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .stat-label {
+            font-size: clamp(0.9rem, 2.5vw, 1rem);
+            opacity: 0.9;
+        }
+
+        /* Connect */
+        .connect-section {
+            text-align: center;
+        }
+
+        .world-map {
+            position: relative;
+            max-width: 800px;
+            height: clamp(150px, 25vw, 200px);
+            margin: var(--space-lg) auto;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400"><path fill="%236e45e2" opacity="0.1" d="M400,200c0,110.5-89.5,200-200,200S0,310.5,0,200S89.5,0,200,0S400,89.5,400,200z"/></svg>') no-repeat center center;
+            background-size: contain;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .pulse-dot {
+            position: absolute;
+            width: clamp(12px, 2vw, 16px);
+            height: clamp(12px, 2vw, 16px);
+            background: var(--primary-color);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        .pulse-dot:nth-child(2) {
+            background: var(--secondary-color);
+            animation-delay: 0.5s;
+        }
+
+        .pulse-dot:nth-child(3) {
+            background: var(--tertiary-color);
+            animation-delay: 1s;
+        }
+
+        .contact-btn {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border: none;
+            padding: clamp(12px, 2vw, 14px) clamp(36px, 5vw, 42px);
+            font-size: clamp(1rem, 2.5vw, 1.1rem);
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-block;
+            box-shadow: 0 5px 20px rgba(110, 69, 226, 0.4);
+            margin: var(--space-md) 0;
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(110, 69, 226, 0.6);
+        }
+
+        .inspiration-quote {
+            max-width: 700px;
+            margin: var(--space-lg) auto 0;
+            padding: clamp(var(--space-md), 3vw, var(--space-lg));
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            font-style: italic;
+            position: relative;
+            background: var(--dark-card);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .light-mode .inspiration-quote {
+            background: var(--light-card);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+         /* Footer */
+        .footer {
+            background: rgba(15, 15, 26, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 50px 0 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .light-mode .footer {
+            background: rgba(248, 249, 250, 0.8);
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .footer-logo {
+            font-size: clamp(1.5rem, 3vw, 1.8rem);
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: var(--text-dark);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            font-size: clamp(0.9rem, 2.5vw, 1rem);
+        }
+
+        .light-mode .footer-links a {
+            color: var(--text-light);
+        }
+
+        .footer-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            transition: width 0.3s ease;
+        }
+
+        .footer-links a:hover::after {
+            width: 100%;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .social-icon {
+            width: clamp(36px, 6vw, 40px);
+            height: clamp(36px, 6vw, 40px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            transition: all 0.3s ease;
+        }
+
+        .light-mode .social-icon {
+            background: rgba(0, 0, 0, 0.05);
+            color: var(--text-light);
+        }
+
+        .social-icon:hover {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(110, 69, 226, 0.4);
+        }
+
+        .copyright {
+            margin-top: 40px;
+            text-align: center;
+            opacity: 0.7;
+            font-size: clamp(0.8rem, 2.5vw, 0.9rem);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: var(--dark-bg);
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transform: translateX(-100%);
+            transition: transform 0.5s ease;
+        }
+
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+
+        .light-mode .mobile-menu {
+            background: var(--light-bg);
+        }
+
+        .mobile-menu .nav-link {
+            font-size: clamp(1.3rem, 4vw, 1.5rem);
+            margin: 15px 0;
+        }
+
+        .close-menu {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            font-size: clamp(1.3rem, 4vw, 1.5rem);
+            cursor: pointer;
+        }
+        
+        /* Navbar Styles */
+        .navbar {
+            height: var(--nav-height);
+            background: rgba(15, 15, 26, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .navbar.scrolled {
+            background: rgba(15, 15, 26, 0.95);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .light-mode .navbar {
+            background: rgba(248, 249, 250, 0.8);
+        }
+
+        .light-mode .navbar.scrolled {
+            background: rgba(248, 249, 250, 0.95);
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-link {
+            position: relative;
+            margin: 0 10px;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .light-mode .nav-link {
+            color: var(--text-light);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(110, 69, 226, 0.5);
+            }
+            70% {
+                transform: scale(1.1);
+                box-shadow: 0 0 0 12px rgba(110, 69, 226, 0);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(110, 69, 226, 0);
+            }
+        }
+
+        /* Particles */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .section {
+                padding: var(--space-lg) var(--space-md);
+            }
+            
+            .hero {
+                min-height: 90vh;
+                min-height: 90dvh;
+                padding-top: calc(var(--nav-height) + var(--space-md));
+            }
+            
+            .story-grid {
+                gap: var(--space-md);
+            }
+            
+            .visual-element {
+                max-width: 300px;
+                margin: 0 auto var(--space-md);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .section {
+                padding: var(--space-lg) var(--space-sm);
+            }
+            
+            .hero-content {
+                padding: var(--space-sm);
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+                line-height: 1.2;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+                margin-bottom: var(--space-md);
+            }
+            
+            .btn-explore {
+                padding: 12px 30px;
+                font-size: 1.1rem;
+            }
+            
+            .story-grid {
+                gap: var(--space-md);
+            }
+            
+            .visual-element {
+                max-width: 100%;
+                margin-bottom: var(--space-lg);
+            }
+            
+            .values-grid,
+            .team-grid,
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer > .container > .row > div {
+                margin-bottom: 30px;
+            }
+            
+            .footer-logo, 
+            .footer h5 {
+                text-align: center;
+            }
+            
+            .footer-links {
+                text-align: center;
+            }
+            
+            .social-icons {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .btn-explore {
+                padding: 10px 25px;
+                font-size: 1rem;
+                min-width: 200px;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .visual-element i {
+                font-size: 4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">KnowledgeUniverse</a>
+            <button class="navbar-toggler" type="button" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#categories">Categories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item d-flex align-items-center">
+                        <div class="dark-mode-toggle" id="darkModeToggle">
+                            <div class="toggle-ball"></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <i class="fas fa-times close-menu" id="closeMenu"></i>
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="index.html#categories">Categories</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+            <li class="nav-item d-flex align-items-center justify-content-center mt-4">
+                <div class="dark-mode-toggle" id="mobileDarkModeToggle">
+                    <div class="toggle-ball"></div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!-- Hero Section - Fixed -->
+    <section class="hero">
+        <canvas class="particles" id="particles"></canvas>
+        <div class="hero-content">
+            <h1>About KnowledgeUniverse</h1>
+            <p>Where Curiosity Meets Purpose — A Journey of Lifelong Learning</p>
+            <a href="index.html#categories">
+                <button class="btn-explore" id="exploreBtn">Discover Our Mission</button>
+            </a>
+        </div>
+    </section>
+
+    <!-- Our Story Section -->
+    <section class="section" id="ourStory">
+        <div class="container-narrow">
+            <h2 class="section-title">Our Story</h2>
+            <div class="story-grid">
+                <div class="story-visual">
+                    <div class="visual-element">
+                        <i class="fas fa-brain"></i>
+                        <i class="fas fa-atom"></i>
+                    </div>
+                </div>
+                <div class="story-content">
+                    <h3>From Curiosity to Creation</h3>
+                    <p>Founded by a team of passionate educators, technologists, and lifelong learners, KnowledgeUniverse emerged from a shared vision: to create a boundless space where curiosity is nurtured and knowledge flows freely.</p>
+                    <p>In 2018, we started as a small collective of experts frustrated by information silos. Today, we've grown into a global community of over 15,000 contributors and millions of learners exploring the frontiers of human understanding.</p>
+                    <p>Our mission is to dissolve barriers between disciplines, creating connections between science and art, technology and philosophy, data and humanity. We believe that true innovation happens at the intersection of diverse fields.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Values Section -->
+    <section class="section values-section">
+        <div class="container-narrow">
+            <h2 class="section-title">Our Core Values</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-question"></i>
+                    </div>
+                    <h4>Curiosity</h4>
+                    <p>We embrace the unknown and celebrate questions as catalysts for discovery and growth.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <h4>Integrity</h4>
+                    <p>We maintain the highest standards of accuracy and transparency in all our content.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h4>Creativity</h4>
+                    <p>We believe in unconventional approaches and the power of imagination to solve complex problems.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h4>Empathy</h4>
+                    <p>We design learning experiences that respect diverse perspectives and individual journeys.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h4>Collaboration</h4>
+                    <p>We know that the best ideas emerge when brilliant minds work together across boundaries.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <h4>Excellence</h4>
+                    <p>We pursue mastery in our craft and deliver exceptional value to our community every day.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="section">
+        <div class="container-narrow">
+            <h2 class="section-title">Meet Our Visionaries</h2>
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <div>DR</div>
+                    </div>
+                    <div class="team-info">
+                        <h4>Dr. Elena Rodriguez</h4>
+                        <span class="role">Chief Science Officer</span>
+                    </div>
+                    <p class="team-quote">"Every discovery begins with a question we're not afraid to ask."</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <div>RS</div>
+                    </div>
+                    <div class="team-info">
+                        <h4>Rajiv Singh</h4>
+                        <span class="role">Technology Director</span>
+                    </div>
+                    <p class="team-quote">"Technology should empower, not complicate, the learning journey."</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fas fa-globe"></i></a>
+                    </div>
+                </div>
+                
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <div>MJ</div>
+                    </div>
+                    <div class="team-info">
+                        <h4>Maya Johnson</h4>
+                        <span class="role">Creative Lead</span>
+                    </div>
+                    <p class="team-quote">"Design is the bridge between complexity and understanding."</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-behance"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fas fa-palette"></i></a>
+                    </div>
+                </div>
+                
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <div>KL</div>
+                    </div>
+                    <div class="team-info">
+                        <h4>Kenji Lee</h4>
+                        <span class="role">Community Architect</span>
+                    </div>
+                    <p class="team-quote">"Knowledge grows when shared across cultures and experiences."</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fas fa-comments"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section class="section impact-section">
+        <div class="container-narrow">
+            <h2 class="section-title">Our Impact</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <div class="stat-number">250+</div>
+                    <div class="stat-label">Articles Published</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-number">30K+</div>
+                    <div class="stat-label">Monthly Readers</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <div class="stat-number">150+</div>
+                    <div class="stat-label">Countries Reached</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">Global Contributors</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Connect Section -->
+    <section class="section connect-section">
+        <div class="container-narrow">
+            <h2 class="section-title">Let's Connect</h2>
+            <p class="lead">Join our community of explorers and creators</p>
+            
+            <div class="world-map">
+                <div class="pulse-dot" style="top: 30%; left: 45%;"></div>
+                <div class="pulse-dot" style="top: 60%; left: 15%;"></div>
+                <div class="pulse-dot" style="top: 45%; left: 75%;"></div>
+            </div>
+            
+            <a href="contact.html"><button class="contact-btn">Contact Our Team</button></a>
+            
+            <div class="inspiration-quote">
+                "Sharing knowledge is the greatest act of generosity — it creates ripples that transform lives across generations."
+            </div>
+        </div>
+    </section>
+
+   <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <div class="footer-logo">KnowledgeUniverse</div>
+                    <p>Exploring the infinite dimensions of human knowledge and creativity.</p>
+                </div>
+                <div class="col-md-2 mb-4 mb-md-0">
+                    <h5>Quick Links</h5>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#categories">Categories</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 mb-4 mb-md-0">
+                    <h5>Legal</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Connect With Us</h5>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 KnowledgeUniverse. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const closeMenu = document.getElementById('closeMenu');
+
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        }
+
+        if (closeMenu) {
+            closeMenu.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            });
+        }
+
+        // Close mobile menu when clicking outside
+        mobileMenu.addEventListener('click', (e) => {
+            if (e.target === mobileMenu) {
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Dark Mode Toggle
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const mobileDarkModeToggle = document.getElementById('mobileDarkModeToggle');
+        
+        function toggleDarkMode() {
+            document.body.classList.toggle('light-mode');
+            localStorage.setItem('darkMode', document.body.classList.contains('light-mode') ? 'light' : 'dark');
+        }
+        
+        darkModeToggle.addEventListener('click', toggleDarkMode);
+        mobileDarkModeToggle.addEventListener('click', toggleDarkMode);
+        
+        // Check for saved preference
+        if (localStorage.getItem('darkMode') === 'light') {
+            document.body.classList.add('light-mode');
+        }
+        
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 20) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Scroll to Our Story section
+        document.getElementById('exploreBtn').addEventListener('click', (e) => {
+            e.preventDefault();
+            document.getElementById('ourStory').scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+        
+        // Particle background - fixed for mobile
+        const canvas = document.getElementById('particles');
+        const ctx = canvas.getContext('2d');
+        
+        function initCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        
+        initCanvas();
+        
+        let particles = [];
+        const particleCount = window.innerWidth < 768 ? 40 : 80;
+        
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 3 + 1;
+                this.speedX = Math.random() * 1 - 0.5;
+                this.speedY = Math.random() * 1 - 0.5;
+                this.color = `rgba(255, 255, 255, ${Math.random() * 0.5 + 0.1})`;
+            }
+            
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                
+                if (this.x < 0 || this.x > canvas.width) {
+                    this.speedX = -this.speedX;
+                }
+                
+                if (this.y < 0 || this.y > canvas.height) {
+                    this.speedY = -this.speedY;
+                }
+            }
+            
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = this.color;
+                ctx.fill();
+                
+                // Create glow effect
+                ctx.shadowBlur = 15;
+                ctx.shadowColor = this.color;
+            }
+        }
+        
+        function initParticles() {
+            particles = [];
+            for (let i = 0; i < particleCount; i++) {
+                particles.push(new Particle());
+            }
+        }
+        
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update();
+                particles[i].draw();
+                
+                // Connect particles that are close to each other
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    
+                    if (distance < 100) {
+                        ctx.beginPath();
+                        ctx.strokeStyle = `rgba(110, 69, 226, ${1 - distance / 100})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+            
+            requestAnimationFrame(animateParticles);
+        }
+        
+        initParticles();
+        animateParticles();
+        
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            initCanvas();
+            initParticles();
+        });
+    </script>
+</body>
+</html> 

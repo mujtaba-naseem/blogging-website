@@ -1,0 +1,1243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leadership: The Future of Work: Leading Hybrid Teams Effectively | KnowledgeUniverse</title>
+    <meta name="description" content="Discover how successful leaders are adapting their management styles to maintain productivity and engagement in hybrid work environments.">
+    <meta name="keywords" content="leadership, hybrid work, remote management, team productivity, employee engagement, future of work">
+    <meta name="author" content="KnowledgeUniverse">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #6e45e2;
+            --secondary-color: #88d3ce;
+            --dark-bg: #0f0f1a;
+            --dark-card: rgba(25, 25, 45, 0.7);
+            --light-bg: #f8f9fa;
+            --light-card: rgba(255, 255, 255, 0.7);
+            --text-dark: #e0e0e0;
+            --text-light: #333;
+            --nav-height: 70px;
+            --offical-color: #6e45e2;
+            --hacker-color: #88d3ce;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-dark);
+            transition: all 0.5s ease;
+            overflow-x: hidden;
+        }
+
+        body.light-mode {
+            background-color: var(--light-bg);
+            color: var(--text-light);
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            height: var(--nav-height);
+            background: rgba(15, 15, 26, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .navbar.scrolled {
+            background: rgba(15, 15, 26, 0.95);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .light-mode .navbar {
+            background: rgba(248, 249, 250, 0.8);
+        }
+
+        .light-mode .navbar.scrolled {
+            background: rgba(248, 249, 250, 0.95);
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            background: linear-gradient(45deg, var(--offical-color), var(--hacker-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-link {
+            position: relative;
+            margin: 0 10px;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .light-mode .nav-link {
+            color: var(--text-light);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        /* Leadership Hero Section */
+        .leadership-hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: var(--nav-height);
+            background: linear-gradient(135deg, rgba(15, 15, 26, 0.7), rgba(25, 25, 45, 0.6)), 
+                        url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .leadership-hero-content {
+            text-align: center;
+            max-width: 900px;
+            padding: 0 20px;
+            z-index: 1;
+        }
+
+        .leadership-hero h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            color: white;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 1s ease;
+            background: linear-gradient(45deg, #fff, #88d3ce);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+        }
+
+        .leadership-hero h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            border-radius: 3px;
+        }
+
+        .light-mode .leadership-hero h1 {
+            background: linear-gradient(45deg, #333, var(--primary-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .leadership-hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.2s forwards;
+            opacity: 0;
+            color: white;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .light-mode .leadership-hero p {
+            color: var(--text-light);
+        }
+
+        .scroll-down {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 1.5rem;
+            animation: bounce 2s infinite;
+            cursor: pointer;
+        }
+
+        .light-mode .scroll-down {
+            color: var(--text-light);
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0) translateX(-50%);
+            }
+            40% {
+                transform: translateY(-20px) translateX(-50%);
+            }
+            60% {
+                transform: translateY(-10px) translateX(-50%);
+            }
+        }
+
+        /* Leadership Content */
+        .leadership-content {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .container-narrow {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .blog-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .light-mode .blog-meta {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .author-info {
+            display: flex;
+            align-items: center;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+            object-fit: cover;
+        }
+
+        .author-name {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .publish-date {
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        .reading-time {
+            background: rgba(110, 69, 226, 0.2);
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+        }
+
+        .leadership-article {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .leadership-article h2 {
+            font-size: 2.2rem;
+            margin: 60px 0 25px;
+            position: relative;
+            padding-bottom: 15px;
+            color: white;
+        }
+
+        .light-mode .leadership-article h2 {
+            color: var(--text-light);
+        }
+
+        .leadership-article h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            border-radius: 3px;
+        }
+
+        .leadership-article h3 {
+            font-size: 1.6rem;
+            margin: 40px 0 20px;
+            color: white;
+        }
+
+        .light-mode .leadership-article h3 {
+            color: var(--text-light);
+        }
+
+        .leadership-article p {
+            margin-bottom: 25px;
+        }
+
+        .leadership-term {
+            font-weight: 700;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .leadership-image {
+            width: 100%;
+            border-radius: 15px;
+            margin: 40px 0;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+        }
+
+        .leadership-image:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(110, 69, 226, 0.4);
+        }
+
+        .image-caption {
+            text-align: center;
+            font-size: 0.9rem;
+            opacity: 0.7;
+            margin-top: -30px;
+            margin-bottom: 40px;
+        }
+
+        .leadership-quote {
+            background: var(--dark-card);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-left: 4px solid var(--primary-color);
+            padding: 30px;
+            margin: 40px 0;
+            border-radius: 0 10px 10px 0;
+            position: relative;
+        }
+
+        .light-mode .leadership-quote {
+            background: var(--light-card);
+        }
+
+        .leadership-quote::before {
+            content: '\201C';
+            font-family: Georgia, serif;
+            font-size: 5rem;
+            position: absolute;
+            left: 10px;
+            top: 10px;
+            opacity: 0.2;
+            line-height: 1;
+        }
+
+        .leadership-quote p {
+            font-size: 1.2rem;
+            font-style: italic;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .leadership-quote .quote-author {
+            font-weight: 600;
+            text-align: right;
+        }
+
+        .stats-box {
+            background: rgba(110, 69, 226, 0.1);
+            border: 1px solid rgba(110, 69, 226, 0.3);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 30px 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .light-mode .stats-box {
+            background: rgba(110, 69, 226, 0.05);
+            border: 1px solid rgba(110, 69, 226, 0.2);
+        }
+
+        .stats-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .leadership-list {
+            margin: 30px 0;
+            padding-left: 20px;
+        }
+
+        .leadership-list li {
+            margin-bottom: 15px;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .leadership-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 10px;
+            height: 10px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+        }
+
+        /* Call to Action */
+        .leadership-cta {
+            background: linear-gradient(135deg, rgba(15, 15, 26, 0.8), rgba(25, 25, 45, 0.9));
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 80px 0;
+            margin: 100px 0;
+            text-align: center;
+            border-radius: 15px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .light-mode .leadership-cta {
+            background: linear-gradient(135deg, rgba(248, 249, 250, 0.8), rgba(255, 255, 255, 0.9));
+        }
+
+        .leadership-cta::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(110, 69, 226, 0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .leadership-cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .light-mode .leadership-cta h2 {
+            color: var(--text-light);
+        }
+
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 15px 40px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(110, 69, 226, 0.3);
+            margin-top: 30px;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(110, 69, 226, 0.5);
+        }
+
+        .cta-btn i {
+            margin-left: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .cta-btn:hover i {
+            transform: translateX(5px);
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+            box-shadow: 0 5px 20px rgba(110, 69, 226, 0.4);
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Footer */
+        .footer {
+            background: rgba(15, 15, 26, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 50px 0 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .light-mode .footer {
+            background: rgba(248, 249, 250, 0.8);
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: var(--text-dark);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .light-mode .footer-links a {
+            color: var(--text-light);
+        }
+
+        .footer-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            transition: width 0.3s ease;
+        }
+
+        .footer-links a:hover::after {
+            width: 100%;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .light-mode .social-icon {
+            background: rgba(0, 0, 0, 0.05);
+            color: var(--text-light);
+        }
+
+        .social-icon:hover {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(110, 69, 226, 0.4);
+        }
+
+        .copyright {
+            margin-top: 40px;
+            text-align: center;
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: var(--dark-bg);
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transform: translateX(-100%);
+            transition: transform 0.5s ease;
+        }
+
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+
+        .light-mode .mobile-menu {
+            background: var(--light-bg);
+        }
+
+        .mobile-menu .nav-link {
+            font-size: 1.5rem;
+            margin: 15px 0;
+        }
+
+        .close-menu {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Dark Mode Toggle */
+        .dark-mode-toggle {
+            width: 50px;
+            height: 26px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            position: relative;
+            cursor: pointer;
+            margin-left: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .light-mode .dark-mode-toggle {
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        .dark-mode-toggle::before {
+            content: '\f186';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 12px;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .light-mode .dark-mode-toggle::before {
+            content: '\f185';
+            left: auto;
+            right: 5px;
+            color: var(--text-light);
+        }
+
+        .toggle-ball {
+            width: 20px;
+            height: 20px;
+            background: white;
+            border-radius: 50%;
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .light-mode .toggle-ball {
+            background: var(--text-light);
+            left: 27px;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Framework Visualization */
+        .framework-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .framework-item {
+            flex: 1 1 300px;
+            background: var(--dark-card);
+            border-radius: 15px;
+            padding: 25px;
+            transition: transform 0.3s ease;
+        }
+
+        .light-mode .framework-item {
+            background: var(--light-card);
+        }
+
+        .framework-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(110, 69, 226, 0.2);
+        }
+
+        .framework-item h4 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .framework-item h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--secondary-color);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .leadership-hero h1 {
+                font-size: 3rem;
+            }
+            
+            .leadership-hero p {
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .leadership-hero {
+                height: 80vh;
+            }
+            
+            .leadership-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .leadership-hero p {
+                font-size: 1.1rem;
+            }
+            
+            .leadership-article h2 {
+                font-size: 1.8rem;
+            }
+            
+            .leadership-article h3 {
+                font-size: 1.4rem;
+            }
+            
+            .leadership-cta h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .leadership-hero {
+                height: 70vh;
+            }
+            
+            .leadership-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .blog-meta {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .reading-time {
+                margin-top: 15px;
+            }
+            
+            .leadership-cta h2 {
+                font-size: 1.8rem;
+            }
+            
+            .back-to-top {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+        
+        #img-setup{
+            object-fit: cover;
+            height: 500px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">KnowledgeUniverse</a>
+            <button class="navbar-toggler" type="button" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#categories">Categories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item d-flex align-items-center">
+                        <div class="dark-mode-toggle" id="darkModeToggle">
+                            <div class="toggle-ball"></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <i class="fas fa-times close-menu" id="closeMenu"></i>
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="categories.html">Categories</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+            <li class="nav-item d-flex align-items-center justify-content-center mt-4">
+                <div class="dark-mode-toggle" id="mobileDarkModeToggle">
+                    <div class="toggle-ball"></div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Leadership Hero Section -->
+    <section class="leadership-hero">
+        <div class="leadership-hero-content">
+            <h1>The Future of Work</h1>
+            <p>Leading Hybrid Teams Effectively: How successful leaders are adapting their management styles to maintain productivity and engagement in hybrid work environments.</p>
+        </div>
+        <div class="scroll-down" id="scrollDown">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- Leadership Content -->
+    <section class="leadership-content">
+        <div class="container-narrow">
+            <div class="blog-meta">
+                <div class="author-info">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael Reynolds" class="author-avatar">
+                    <div>
+                        <div class="author-name">Michael Reynolds</div>
+                        <div class="publish-date">Published on August 10, 2023</div>
+                    </div>
+                </div>
+                <div class="reading-time">10 min read</div>
+            </div>
+
+            <article class="leadership-article">
+                <h2>The Hybrid Work Revolution</h2>
+                <p>The workplace has undergone a seismic shift. What began as a temporary pandemic response has evolved into a permanent transformation in how we work. <span class="leadership-term">Hybrid work models</span>—combining remote and in-office work—have emerged as the dominant approach for knowledge workers globally. This revolution demands a fundamental rethinking of leadership strategies to maintain productivity, foster collaboration, and preserve organizational culture.</p>
+
+                <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Hybrid team collaboration" class="leadership-image">
+                <p class="image-caption">Modern teams collaborating across physical and virtual spaces</p>
+
+                <p>Successful leaders are moving beyond simply managing remote work logistics to fundamentally reimagining leadership for this new era. They recognize that hybrid work isn't just a location strategy—it's a complete reconfiguration of work dynamics that requires new approaches to communication, performance management, team cohesion, and employee well-being.</p>
+
+                <div class="leadership-quote">
+                    <p>"The greatest leaders of the hybrid era will be those who can create connection and community regardless of physical location."</p>
+                    <div class="quote-author">— Satya Nadella, Microsoft CEO</div>
+                </div>
+
+                <h3>The New Leadership Challenges</h3>
+                <p>Hybrid work introduces unique challenges that traditional management approaches weren't designed to address:</p>
+
+                <ul class="leadership-list">
+                    <li><strong>Proximity Bias:</strong> The unconscious tendency to favor employees who are physically present in the office</li>
+                    <li><strong>Digital Fatigue:</strong> Exhaustion from constant video calls and digital communication</li>
+                    <li><strong>Cultural Fragmentation:</strong> Difficulty maintaining a unified company culture across locations</li>
+                    <li><strong>Inequitable Experiences:</strong> Ensuring all employees have equal opportunities regardless of location</li>
+                    <li><strong>Work-Life Boundaries:</strong> Preventing burnout when work and home environments blend</li>
+                </ul>
+
+                <div class="stats-box">
+                    <div class="stats-title">Hybrid Work by the Numbers</div>
+                    <ul class="leadership-list">
+                        <li>74% of companies have implemented or plan to implement a hybrid work model (McKinsey)</li>
+                        <li>63% of high-growth companies have adopted a "productivity anywhere" workforce model (Accenture)</li>
+                        <li>Employees with flexible work options report 29% higher productivity and 53% greater ability to focus (Stanford)</li>
+                        <li>83% of workers prefer a hybrid model (Microsoft Work Trend Index)</li>
+                    </ul>
+                </div>
+
+                <h2>Essential Leadership Strategies</h2>
+                <p>Leading hybrid teams effectively requires mastering these core strategies:</p>
+
+                <div class="framework-container">
+                    <div class="framework-item">
+                        <h4>Intentional Connection</h4>
+                        <p>Purposefully design moments for both structured collaboration and organic connection. Schedule regular one-on-ones and create virtual "water cooler" spaces for informal interactions.</p>
+                    </div>
+                    <div class="framework-item">
+                        <h4>Outcome-Focused Management</h4>
+                        <p>Shift from monitoring hours to evaluating outcomes. Define clear objectives and empower teams to achieve them in ways that suit their work styles and locations.</p>
+                    </div>
+                    <div class="framework-item">
+                        <h4>Digital Fluency</h4>
+                        <p>Master collaboration tools and establish digital-first workflows. Ensure meetings are inclusive for both in-person and remote participants with equal speaking opportunities.</p>
+                    </div>
+                    <div class="framework-item">
+                        <h4>Equitable Experiences</h4>
+                        <p>Design processes that work equally well for all employees regardless of location. Rotate meeting times to accommodate different time zones and ensure remote employees have equal access to opportunities.</p>
+                    </div>
+                </div>
+
+                <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Hybrid meeting setup" class="leadership-image" id="img-setup">
+                <p class="image-caption">Effective hybrid meeting setup with equal participation</p>
+
+                <h3>Building Trust in Distributed Teams</h3>
+                <p>Trust is the foundation of effective hybrid teams. Leaders can foster trust through:</p>
+
+                <ul class="leadership-list">
+                    <li><strong>Radical Transparency:</strong> Share context and decision-making processes openly</li>
+                    <li><strong>Consistent Communication:</strong> Establish predictable communication rhythms</li>
+                    <li><strong>Vulnerability Modeling:</strong> Leaders showing authentic humanity creates psychological safety</li>
+                    <li><strong>Follow-Through:</strong> Consistently delivering on commitments builds credibility</li>
+                    <li><strong>Autonomy with Support:</strong> Granting independence while making support readily available</li>
+                </ul>
+
+                <div class="leadership-quote">
+                    <p>"Trust is the most essential ingredient for hybrid work. Without it, you have nothing."</p>
+                    <div class="quote-author">— Anne-Marie Slaughter, CEO of New America</div>
+                </div>
+
+                <h2>Technology as an Enabler</h2>
+                <p>The right technology stack is crucial for hybrid success. Essential categories include:</p>
+
+                <ol class="leadership-list">
+                    <li><strong>Collaboration Platforms:</strong> Tools like Microsoft Teams, Slack, or Zoom that enable seamless communication</li>
+                    <li><strong>Project Management Systems:</strong> Platforms like Asana, Trello, or Monday.com that provide visibility into work</li>
+                    <li><strong>Digital Whiteboards:</strong> Miro, Mural, or FigJam for visual collaboration</li>
+                    <li><strong>Hybrid Meeting Tech:</strong> Advanced audio/video systems that create equitable meeting experiences</li>
+                    <li><strong>Employee Experience Platforms:</strong> Tools that measure engagement and well-being</li>
+                </ol>
+
+                <h3>Designing Effective Hybrid Meetings</h3>
+                <p>Meetings represent one of the biggest challenges in hybrid environments. Best practices include:</p>
+
+                <ul class="leadership-list">
+                    <li><strong>Camera-On Default:</strong> Require cameras for all participants to enhance engagement</li>
+                    <li><strong>Dedicated Facilitator:</strong> Assign someone to monitor participation and ensure remote voices are heard</li>
+                    <li><strong>Structured Agendas:</strong> Circulate clear agendas with assigned roles in advance</li>
+                    <li><strong>Hybrid-First Design:</strong> Optimize for remote participants rather than in-office convenience</li>
+                    <li><strong>Asynchronous Alternatives:</strong> Consider whether meetings can be replaced with async communication</li>
+                </ul>
+
+                <h2>Performance Management in Hybrid Teams</h2>
+                <p>Traditional performance management approaches often fail in hybrid environments. Effective leaders:</p>
+
+                <ul class="leadership-list">
+                    <li><strong>Focus on Outcomes:</strong> Evaluate results rather than hours worked or office presence</li>
+                    <li><strong>Implement Continuous Feedback:</strong> Replace annual reviews with ongoing conversations</li>
+                    <li><strong>Establish Clear Metrics:</strong> Define measurable objectives that transcend location</li>
+                    <li><strong>Recognize Contributions Publicly:</strong> Celebrate achievements in visible, inclusive ways</li>
+                    <li><strong>Address Proximity Bias:</strong> Actively monitor for and correct location-based favoritism</li>
+                </ul>
+
+                <div class="leadership-quote">
+                    <p>"The measure of leadership is not the number of people who serve you, but the number of people you serve."</p>
+                    <div class="quote-author">— Simon Sinek, Leadership Expert</div>
+                </div>
+
+                <h3>Maintaining Culture and Connection</h3>
+                <p>Organizational culture requires intentional cultivation in hybrid environments. Successful strategies include:</p>
+
+                <ol class="leadership-list">
+                    <li><strong>Purposeful Onsites:</strong> Bring teams together periodically for meaningful connection</li>
+                    <li><strong>Virtual Rituals:</strong> Create digital traditions that reinforce values and build community</li>
+                    <li><strong>Mentorship Programs:</strong> Facilitate cross-location relationships and knowledge sharing</li>
+                    <li><strong>Inclusive Social Events:</strong> Design activities that work equally well for all participants</li>
+                    <li><strong>Leadership Visibility:</strong> Ensure executives regularly engage with distributed team members</li>
+                </ol>
+
+                <p>As we navigate this new era of work, leaders who master hybrid management will build more resilient, adaptable, and human-centered organizations. The future belongs to those who can balance flexibility with connection, autonomy with alignment, and technology with humanity.</p>
+            </article>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="container">
+            <div class="leadership-cta">
+                <h2>Master Modern Leadership</h2>
+                <p>Discover more insights and strategies for leading in today's evolving workplace</p>
+                <a href="leadership.html" class="cta-btn">Explore Leadership Resources <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-atom"></i>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <div class="footer-logo">KnowledgeUniverse</div>
+                    <p>Exploring the infinite dimensions of human knowledge and creativity.</p>
+                </div>
+                <div class="col-md-2 mb-4 mb-md-0">
+                    <h5>Quick Links</h5>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#categories">Categories</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 mb-4 mb-md-0">
+                    <h5>Legal</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Connect With Us</h5>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 KnowledgeUniverse. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Dark Mode Toggle
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const mobileDarkModeToggle = document.getElementById('mobileDarkModeToggle');
+        
+        function toggleDarkMode() {
+            document.body.classList.toggle('light-mode');
+            localStorage.setItem('darkMode', document.body.classList.contains('light-mode') ? 'light' : 'dark');
+        }
+        
+        darkModeToggle.addEventListener('click', toggleDarkMode);
+        mobileDarkModeToggle.addEventListener('click', toggleDarkMode);
+        
+        // Check for saved preference
+        if (localStorage.getItem('darkMode') === 'light') {
+            document.body.classList.add('light-mode');
+        }
+        
+        // Mobile Menu
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const closeMenu = document.getElementById('closeMenu');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+        });
+        
+        closeMenu.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+        });
+        
+        // Close menu when clicking a link
+        document.querySelectorAll('#mobileMenu .nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+            });
+        });
+        
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Smooth scrolling
+        document.getElementById('scrollDown').addEventListener('click', () => {
+            window.scrollTo({
+                top: document.querySelector('.leadership-content').offsetTop - document.querySelector('.navbar').offsetHeight,
+                behavior: 'smooth'
+            });
+        });
+        
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - document.querySelector('.navbar').offsetHeight,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Highlight active nav link on scroll
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= sectionTop - 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+        
+        // Back to top button
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Animate elements on scroll
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.leadership-image, .leadership-quote, .stats-box, .framework-item');
+            const windowHeight = window.innerHeight;
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const animationPoint = windowHeight * 0.8;
+                
+                if (elementPosition < animationPoint) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        }
+
+        // Set initial state
+        document.querySelectorAll('.leadership-image, .leadership-quote, .stats-box, .framework-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        });
+
+        window.addEventListener('scroll', animateOnScroll);
+        animateOnScroll(); // Run once on page load
+    </script>
+</body>
+</html>
